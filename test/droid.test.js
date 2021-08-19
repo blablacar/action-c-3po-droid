@@ -18,7 +18,6 @@ describe('test splitBody()', () => {
     })
 })
 
-
 describe('test getBody()', () => {
     const successResult = ['/help', 'me', 'please']
     const issueCommentPayload = {
