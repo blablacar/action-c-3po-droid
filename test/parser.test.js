@@ -431,4 +431,27 @@ describe('test parseRow()', () => {
             'has-test-14': '468'
         })
     })
+
+    test('expect sequential processing', () => {
+        parser.parseRow(this.result, expectRules, '/test7')
+        parser.parseRow(this.result, expectRules, '/test-10 .')
+        parser.parseRow(this.result, expectRules, '/test3 foo=bar')
+        parser.parseRow(this.result, expectRules, '/test3 .=foo')
+        expect(this.result).toStrictEqual({
+            commands: [
+                {command: 'test7', value: '468'},
+                {command: 'test-10', value: '.'},
+                {command: 'test3', output: 'foo', value: 'bar'},
+                {command: 'test3', output: '.', value: 'foo'}
+            ],
+            old: '1',
+            'is-test7': '/test7',
+            'has-test7': '468',
+            'is-test-10': '/test-10 .',
+            'has-test-10': '.',
+            'is-test3': '/test3 foo=bar',
+            'has-test3-foo': 'bar',
+            'has-test3-.': 'foo'
+        })
+    })
 })
