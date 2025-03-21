@@ -1,5 +1,9 @@
 # GitHub Action: Comment Parser
 
+> ⚠️ This code is no longer maintained.
+> We'd love it if you fork it and continue developing this action.
+> Otherwise, you can use the author's fork [levonet/action-c-3po-droid](https://github.com/levonet/action-c-3po-droid).
+
 > I Am C-3PO, Human/Cyborg Relations. And You Are?
 
 The action parses comments using predefined patterns.
